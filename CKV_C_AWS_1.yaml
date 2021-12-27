@@ -1,0 +1,19 @@
+---
+metadata:
+ name: "Org's compute instances should not be t3.micro or t3.nano"
+ id: "CKV_C_AWS_1"
+ category: "NETWORKING"
+definition:
+ or:
+ - cond_type: "attribute"
+   resource_types:
+    - "aws_instance"
+   attribute: "instance_type"
+   operator: "not_equals"
+   value: "t3.micro"
+ - cond_type: "attribute"
+   resource_types:
+   - "aws_instance"
+   attribute: "instance_type"
+   operator: "not_equals"
+   value: "t3.nano"
